@@ -53,14 +53,7 @@ const REVIEWS = [
     text: "Absolute lifesaver for long desk shifts. Rolling this on my neck and temples during afternoon slumps instantly resets my focus.",
     date: "1 month ago",
     verified: true,
-  },
-  {
-    name: "L.B.",
-    rating: 5,
-    text: "Premium heavy metal feel. Completely de-puffs my face every morning before work. I bought the 3-pack bundle to gift my sisters!",
-    date: "2 months ago",
-    verified: true,
-  },
+  }
 ];
 
 const FAQS = [
