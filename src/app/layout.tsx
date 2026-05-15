@@ -1,15 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import NavAuthBadge from "./components/NavAuthBadge";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Glo Ritual | Electric Cryotherapy Ice Roller — Cold Therapy At Home",
+  title: "Glo Ritual | Cold Therapy Roller — Face. Body. Recovery.",
   description:
-    "De-puff, tone & recover with the Glo Ritual Cold Therapy Roller. Cold therapy ritual for face and body. Free US shipping on bundles. 30-day money-back guarantee.",
+    "De-puff, tone & recover with the Glo Ritual Cold Therapy Roller. Cold therapy ritual for face and body. FREE Shipping For All Products To The United States. 30-day money-back guarantee.",
   keywords: "cryotherapy roller, ice roller face, electric facial roller, de-puff, skincare",
+  icons: {
+    icon: "/icon.svg?v=gr2",
+  },
   openGraph: {
-    title: "Glo Ritual | Electric Cryotherapy Ice Roller",
+    title: "Glo Ritual | Cold Therapy Roller",
     description: "Cold therapy. Studio results. At home.",
     type: "website",
   },
@@ -60,7 +64,7 @@ export default function RootLayout({
       <body>
         {/* Announcement Bar */}
         <div className="announcement-bar">
-          🚀 FREE US Shipping on 2-Pack & 3-Pack Bundles · Ships in 2–5 Days
+          FREE Shipping For All Products To The United States ⚡ Ships in 24 hours
         </div>
 
         {/* Nav */}
@@ -71,6 +75,7 @@ export default function RootLayout({
             <li><Link href="/product/electric-cryo-roller">Shop</Link></li>
             <li><Link href="/pages/reviews">Reviews</Link></li>
             <li><Link href="/pages/faq">FAQ</Link></li>
+            <NavAuthBadge />
           </ul>
           <Link href="/product/electric-cryo-roller" className="nav-cart-btn">
             Shop Now →

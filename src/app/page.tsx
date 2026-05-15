@@ -74,7 +74,7 @@ const FAQS = [
   },
   {
     q: "When will my order ship?",
-    a: "Orders are processed within 1–3 business days. US: 5–10 business days. International: 7–14."
+    a: "Orders are processed within 24 hours. US: 2–5 business days. International: 7–14."
   },
   {
     q: "Do you offer refunds?",
@@ -126,7 +126,7 @@ export default function HomePage() {
             </Link>
             <div className={styles.heroTrust}>
               <span>✦ 1,200+ Happy Customers</span>
-              <span>📦 Free Shipping on Bundles</span>
+              <span>📦 FREE Shipping For All Products To The US</span>
               <span>⭐ 4.9/5 Rated</span>
             </div>
           </div>
@@ -148,7 +148,7 @@ export default function HomePage() {
       <div className="marquee-wrap">
         <div className="marquee-track" aria-hidden="true">
           {Array.from({ length: 3 }).flatMap(() => [
-            <span key={Math.random()} className="marquee-item">✦ FREE Shipping on 2-Pack &amp; 3-Pack Bundles · Limited Time</span>,
+            <span key={Math.random()} className="marquee-item">✦ FREE Shipping For All Products To The United States</span>,
             <span key={Math.random()} className="marquee-item">⚡ Ships in 24 hours</span>,
           ])}
         </div>
@@ -306,7 +306,7 @@ export default function HomePage() {
             className="btn-primary"
             style={{ display: 'inline-block', width: 'auto', padding: '18px 48px', marginTop: '32px' }}
           >
-            Shop Now — Free Shipping on Bundles
+            Shop Now — FREE Shipping For All Products
           </Link>
         </div>
       </section>

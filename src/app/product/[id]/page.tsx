@@ -6,9 +6,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 
 const BUNDLE_OPTIONS = [
-  { qty: 1, label: "1-Pack", sublabel: "Single", price: 44.99, originalPrice: 79.99, save: "SAVE 44%" },
-  { qty: 2, label: "2-Pack", sublabel: "Best for Sharing", price: 74.99, originalPrice: 159.98, save: "SAVE 17%" },
-  { qty: 3, label: "3-Pack", sublabel: "Most Popular", price: 99.99, originalPrice: 239.97, save: "SAVE 26%" },
+  { qty: 1, label: "1-Pack", sublabel: "Single", price: 44.99, originalPrice: 80.34, save: "SAVE 44%" },
+  { qty: 2, label: "2-Pack", sublabel: "Most Popular", price: 74.99, originalPrice: 90.35, save: "SAVE 17%" },
+  { qty: 3, label: "3-Pack", sublabel: "Ultimate Pack", price: 99.99, originalPrice: 135.12, save: "SAVE 26%" },
 ];
 
 const REVIEWS = [
@@ -79,7 +79,7 @@ const FAQS = [
   },
   {
     q: "When will my order ship?",
-    a: "Orders are processed within 1–3 business days. US: 5–10 business days. International: 7–14."
+    a: "Orders are processed within 24 hours. US: 2–5 business days. International: 7–14."
   },
   {
     q: "Do you offer refunds?",
@@ -145,7 +145,7 @@ function FAQItem({ q, a }: { q: string; a: string }) {
 }
 
 export default function ProductPage() {
-  const [selectedBundle, setSelectedBundle] = useState<number>(3);
+  const [selectedBundle, setSelectedBundle] = useState<number>(2);
   const [activeImage, setActiveImage] = useState<number>(0);
   const [stockCount, setStockCount] = useState<number>(47);
 
@@ -156,11 +156,11 @@ export default function ProductPage() {
   const bundle = BUNDLE_OPTIONS.find((b) => b.qty === selectedBundle)!;
 
   const images = [
+    { src: "/product-counter.jpg", alt: "Glo Ritual Cold Therapy Roller — aesthetic marble counter display setup" },
     { src: "/product-lifestyle-hero.jpg", alt: "Glo Ritual Cold Therapy Roller — morning facial routine lifestyle view" },
-    { src: "/product-hero.png", alt: "Glo Ritual Cold Therapy Roller — solid stainless steel core studio shot" },
     { src: "/product-fridge.jpg", alt: "Glo Ritual Cold Therapy Roller — chilling in freezer for daily facial de-puffing" },
     { src: "/product-shoulder.jpg", alt: "Glo Ritual Cold Therapy Roller — lifestyle shoulder and neck muscle recovery" },
-    { src: "/product-counter.jpg", alt: "Glo Ritual Cold Therapy Roller — aesthetic marble counter display setup" },
+    { src: "/product-hero.png", alt: "Glo Ritual Cold Therapy Roller — solid stainless steel core studio shot" },
   ];
 
   const [zoomStyle, setZoomStyle] = useState<CSSProperties>({ display: 'none' });
@@ -257,9 +257,9 @@ export default function ProductPage() {
 
           {/* 3. Price + Bundle Selector */}
           <div className={styles.priceBlock}>
-            <span className={styles.price}>$44.99</span>
-            <span className={styles.priceOrig}>$79.99</span>
-            <span className={styles.savePill}>SAVE 44%</span>
+            <span className={styles.price}>${bundle.price.toFixed(2)}</span>
+            <span className={styles.priceOrig}>${bundle.originalPrice.toFixed(2)}</span>
+            <span className={styles.savePill}>{bundle.save}</span>
           </div>
 
           <div className={styles.bundleWrap}>
@@ -271,7 +271,7 @@ export default function ProductPage() {
                 className={`${styles.bundleOption} ${selectedBundle === opt.qty ? styles.bundleSelected : ""}`}
                 onClick={() => setSelectedBundle(opt.qty)}
               >
-                {opt.qty === 3 && <span className={styles.popularBadge}>MOST POPULAR</span>}
+                {opt.qty === 2 && <span className={styles.popularBadge}>MOST POPULAR</span>}
                 <div className={styles.bundleLeft}>
                   <strong>{opt.label}</strong>
                   <span className={styles.bundleSubLabel}>{opt.sublabel}</span>
@@ -286,7 +286,7 @@ export default function ProductPage() {
 
           {/* 4. Free Shipping Badge */}
           <div className={styles.shippingBadge}>
-            <span>🎉</span> Free Shipping Unlocked on 2-Pack &amp; 3-Pack!
+            <span>🎉</span> Free Shipping
           </div>
 
           {/* Scarcity + Timer */}
@@ -306,7 +306,7 @@ export default function ProductPage() {
             className={`btn-primary ${styles.atcDesktop}`}
             onClick={handleAddToCart}
           >
-            Add to Cart — $44.99
+            Add to Cart — ${bundle.price.toFixed(2)}
           </button>
 
           {/* 6. Trust Icons */}
@@ -321,7 +321,7 @@ export default function ProductPage() {
             <div className={styles.trustItem}>
               <span>📦</span>
               <div>
-                <strong>Free Shipping on Bundles</strong>
+                <strong>FREE Shipping For All Products</strong>
                 <p>Fast &amp; reliable</p>
               </div>
             </div>
